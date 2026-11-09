@@ -4,6 +4,8 @@ Hi, I'm Rida Najjari. I'm a Salesforce consultant in Paris, currently working on
 
 This repo is the code of my personal website. I wanted one place where a recruiter or a tech lead can quickly see my background and open the code of the Salesforce projects I've built, instead of only reading a PDF.
 
+**You can visit it here: [rida-najjari.netlify.app](https://rida-najjari.netlify.app/)**
+
 ![Home page](docs/screenshot-hero.png)
 
 ## What's on the site
@@ -49,11 +51,12 @@ npm run dev
 
 Then open http://localhost:5173. `npm run build` creates the production version in `dist/`.
 
-The site is hosted on Netlify. The build settings are in `netlify.toml`, and every push to `main` redeploys it.
+I host the site on Netlify at [rida-najjari.netlify.app](https://rida-najjari.netlify.app/). The build settings are in `netlify.toml`, and every time I push to `main` the site updates on its own.
 
 ## Contact
 
 If you're hiring for a Salesforce consultant, developer or admin role, I'd be happy to talk.
 
+- Website: [rida-najjari.netlify.app](https://rida-najjari.netlify.app/)
 - Email: najjaririda6@gmail.com
 - LinkedIn: [linkedin.com/in/rida-najjari](https://www.linkedin.com/in/rida-najjari)
