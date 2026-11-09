@@ -1,104 +1,59 @@
-# Rida Najjari · Salesforce Portfolio
+# portfolio-salesforce
 
-> Personal portfolio of **Rida Najjari**, 4x certified **Salesforce Consultant**, **Apex / LWC Developer** and **Salesforce Administrator** based in Paris.
-> A fast, bilingual (🇬🇧 English / 🇫🇷 French), mobile-first single-page site that presents my experience, certifications, skills and the Salesforce projects I build and publish on GitHub.
+Hi, I'm Rida Najjari. I'm a Salesforce consultant in Paris, currently working on Sales Cloud and Service Cloud at Vulcain Engineering Group. I do both development (Apex, LWC, Flow, integrations) and administration, and I hold 4 Salesforce certifications: Platform Administrator, Platform App Builder, Platform Developer I and Associate.
 
-![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
-![Netlify](https://img.shields.io/badge/Deploy-Netlify-00C7B7?logo=netlify&logoColor=white)
-![Salesforce](https://img.shields.io/badge/Salesforce-4x_Certified-00A1E0?logo=salesforce&logoColor=white)
+This repo is the code of my personal website. I wanted one place where a recruiter or a tech lead can quickly see my background and open the code of the Salesforce projects I've built, instead of only reading a PDF.
 
-![Portfolio hero section](docs/screenshot-hero.png)
+![Home page](docs/screenshot-hero.png)
 
----
+## What's on the site
 
-## About this portfolio
+- A short intro, my certifications and a button to download my CV
+- My experience (Vulcain Engineering Group, Dell Technologies, Sofrecom) and education (Institut F2i, EMSI)
+- My Salesforce projects, each with a link to its GitHub repo
+- My skills, grouped by area
+- A contact section with my email, LinkedIn and a small form
 
-This site is my online CV. Recruiters and tech leads can see in under a minute who I am, which Salesforce certifications I hold, where I have worked, and open the source code of my Salesforce projects.
+The whole site works in English and French. I'm looking for a job in France, but I also wanted it readable for international teams, so there's an EN / FR switch in the menu.
 
-**Certifications:** Platform Administrator · Platform App Builder · Platform Developer I · Salesforce Associate
+![Projects section](docs/screenshot-projects.png)
 
-### Sections
-| Section | Content |
+## My Salesforce projects
+
+These are the projects shown on the site. Each one has its own repo with the code, tests and a README explaining the business need.
+
+| Project | Description |
 |---|---|
-| **Hero** | Name, title, short profile, location, availability, **Download CV** and **Get in Touch** buttons |
-| **Certifications** | My 4 Salesforce certifications |
-| **Experience & Education** | Timeline: Vulcain Engineering Group, Dell Technologies, Sofrecom · Institut F2i, EMSI, BTS |
-| **Salesforce Projects** | 5 project cards with technical summary, test coverage, tech badges and a **View on GitHub** button |
-| **Skills** | Grouped by Salesforce Development, Administration, Clouds, Data & DevOps, Methods, Other Tech, Languages |
-| **Contact** | Email, LinkedIn and GitHub links + a contact form that opens the visitor's email app |
+| [case-escalation-automation](https://github.com/ridanajjari/case-escalation-automation) | Scheduled Batch Apex that raises the priority of Cases that break their SLA and notifies the owner by Chatter and email. 7 test methods, including a 200-record bulk test. |
+| [lead-auto-assignment](https://github.com/ridanajjari/lead-auto-assignment) | Apex trigger that assigns Leads by industry and country. The rules are stored in Custom Metadata, so an admin can change them without a deployment. 8 test methods. |
+| [lwc-kpi-dashboard](https://github.com/ridanajjari/lwc-kpi-dashboard) | Lightning Web Component showing pipeline, open cases and lead conversion rate, loaded from Apex in a single call. |
+| [salesforce-api-integration](https://github.com/ridanajjari/salesforce-api-integration) | Apex callout to an external REST API through a Named Credential, with JSON parsing, error handling and mocked tests. |
+| [admin-flow-toolkit](https://github.com/ridanajjari/admin-flow-toolkit) | Five Flows I reuse for common admin needs: welcome email, approval reminder, duplicate check, case auto-close and lead follow-up. |
 
-![Salesforce projects section](docs/screenshot-projects.png)
+## How I built it
 
-### Featured Salesforce projects
-| Project | What it shows | Repo |
-|---|---|---|
-| SLA Case Escalation (Service Cloud) | Batch Apex, Schedulable, Database.Stateful, Chatter & email alerts, 7 tests (bulk 200) | [case-escalation-automation](https://github.com/ridanajjari/case-escalation-automation) |
-| Lead Auto-Assignment Engine (Sales Cloud) | Apex Trigger Handler pattern, Custom Metadata rules editable without deployment, 8 tests (bulk 200) | [lead-auto-assignment](https://github.com/ridanajjari/lead-auto-assignment) |
-| LWC KPI Dashboard | Lightning Web Component, `@AuraEnabled` Apex `with sharing`, SOQL aggregates in one server call | [lwc-kpi-dashboard](https://github.com/ridanajjari/lwc-kpi-dashboard) |
-| External REST API Integration | Apex HTTP callout, Named Credentials, JSON parsing, typed exceptions, HttpCalloutMock | [salesforce-api-integration](https://github.com/ridanajjari/salesforce-api-integration) |
-| Admin Flow Toolkit | 5 deployable Flows: record-triggered, scheduled, before-save, wait elements | [admin-flow-toolkit](https://github.com/ridanajjari/admin-flow-toolkit) |
+I kept it simple: React 18 with Vite, Tailwind CSS for styling and lucide-react for icons. There's no backend. The contact form just opens the visitor's email app with the message already filled in.
 
----
+All the content (texts in both languages, experience, projects, skills) sits at the top of `src/App.jsx`, so when something changes in my career I only have to edit that part. The CV you download from the site is `public/Rida_Najjari_CV_Salesforce.pdf`.
 
-## Features
-- 🌍 **English / French switch.** Remembers the visitor's choice and defaults to the browser language.
-- 📱 **Mobile-first, responsive.** Tested at 375 px (phone) and 1280 px (desktop), with no horizontal scrolling.
-- ✨ **Polished dark UI.** Glowing project cards, hover transitions and fade-in on scroll (turned off for users who prefer reduced motion).
-- 🧭 **Sticky navigation.** Smooth scrolling, the current section is highlighted, hamburger menu on mobile.
-- ♿ **Accessible.** Semantic HTML, keyboard focus rings, ARIA labels on icon links, `<html lang>` follows the selected language.
-- 📨 **No backend needed.** The contact form validates input and opens the visitor's email app with the message ready to send.
-- 📄 **One-click CV download** from `public/`.
+I checked the layout on phone and desktop sizes. On mobile it looks like this:
 
-<img src="docs/screenshot-mobile-fr.png" alt="Mobile view in French" width="300" />
+<img src="docs/screenshot-mobile-fr.png" alt="Mobile version in French" width="280" />
 
----
+## Running it locally
 
-## Tech stack
-| | |
-|---|---|
-| Framework | React 18 + Vite 5 |
-| Styling | Tailwind CSS 3 |
-| Icons | lucide-react (GitHub / LinkedIn logos as inline SVG) |
-| Hosting | Netlify (config in `netlify.toml`) |
-
-## Project structure
-```
-portfolio-salesforce/
-├── public/
-│   └── Rida_Najjari_CV_Salesforce.pdf   # "Download CV" file
-├── src/
-│   ├── App.jsx      # whole site: content constants + sections
-│   ├── main.jsx
-│   └── index.css    # Tailwind + smooth scroll
-├── docs/            # README screenshots
-├── netlify.toml
-└── tailwind.config.js
-```
-
-## Run locally
 ```bash
 npm install
-npm run dev        # http://localhost:5173
-npm run build      # production build in dist/
+npm run dev
 ```
 
-## Edit content
-All text lives at the top of `src/App.jsx` in the `PROFILE`, `UI`, `EXPERIENCE`, `EDUCATION`, `PROJECTS` and `SKILLS` constants, with `{ en, fr }` values for both languages. You can update content without touching the layout. To update the CV, replace the PDF in `public/`.
+Then open http://localhost:5173. `npm run build` creates the production version in `dist/`.
 
-## Deploy to Netlify
-`netlify.toml` is already configured (`npm run build` → `dist`).
-1. On [app.netlify.com](https://app.netlify.com): **Add new site → Import an existing project → GitHub** → choose this repo → **Deploy**.
-2. Optional: **Site settings → Change site name** (e.g. `rida-najjari.netlify.app`).
-
-Every push to `main` redeploys the site automatically.
-
----
+The site is hosted on Netlify. The build settings are in `netlify.toml`, and every push to `main` redeploys it.
 
 ## Contact
-- 📧 [najjaririda6@gmail.com](mailto:najjaririda6@gmail.com)
-- 💼 [linkedin.com/in/rida-najjari](https://www.linkedin.com/in/rida-najjari)
-- 🐙 [github.com/ridanajjari](https://github.com/ridanajjari)
 
-© 2026 Rida Najjari
+If you're hiring for a Salesforce consultant, developer or admin role, I'd be happy to talk.
+
+- Email: najjaririda6@gmail.com
+- LinkedIn: [linkedin.com/in/rida-najjari](https://www.linkedin.com/in/rida-najjari)

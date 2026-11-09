@@ -25,9 +25,7 @@ import {
   Zap,
 } from "lucide-react";
 
-/* ------------------------------------------------------------------ */
-/*  Content — edit here, the layout below reads from these constants   */
-/* ------------------------------------------------------------------ */
+// Site content (EN / FR)
 
 const PROFILE = {
   name: "Rida Najjari",
@@ -193,7 +191,6 @@ const EDUCATION = [
   },
 ];
 
-// Only Salesforce projects that are pushed to GitHub belong here.
 const PROJECTS = [
   {
     icon: Zap,
@@ -306,11 +303,9 @@ const SKILLS = [
 
 const SECTIONS = ["home", "experience", "projects", "skills", "contact"];
 
-/* ------------------------------------------------------------------ */
-/*  Helpers                                                            */
-/* ------------------------------------------------------------------ */
+// Helpers
 
-// Returns the right language for {en, fr} values; plain values pass through.
+// returns the text in the current language
 const pick = (value, lang) => (value && typeof value === "object" && !Array.isArray(value) && "en" in value ? value[lang] : value);
 
 function getInitialLang() {
@@ -318,12 +313,12 @@ function getInitialLang() {
     const saved = localStorage.getItem("lang");
     if (saved === "en" || saved === "fr") return saved;
   } catch {
-    /* storage unavailable */
+    
   }
   return typeof navigator !== "undefined" && navigator.language?.toLowerCase().startsWith("fr") ? "fr" : "en";
 }
 
-// lucide-react no longer ships brand logos, so these two are inline SVGs.
+// GitHub and LinkedIn logos (not in lucide-react)
 function GithubIcon({ className = "h-5 w-5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
@@ -340,7 +335,7 @@ function LinkedinIcon({ className = "h-5 w-5" }) {
   );
 }
 
-// Fades content in when it scrolls into view (skipped for reduced-motion users).
+// fade-in on scroll
 function Reveal({ children, className = "" }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -394,9 +389,7 @@ function Tag({ children }) {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  Sections                                                           */
-/* ------------------------------------------------------------------ */
+// Sections
 
 function Navbar({ t, lang, setLang, active }) {
   const [open, setOpen] = useState(false);
@@ -495,7 +488,7 @@ function Navbar({ t, lang, setLang, active }) {
 function Hero({ t, lang }) {
   return (
     <section id="home" className="relative overflow-hidden px-4 pb-20 pt-32 sm:px-6 sm:pt-40">
-      {/* glow blobs */}
+      {/* background glow */}
       <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-sky-500/20 blur-[120px]" />
       <div className="pointer-events-none absolute -right-40 top-60 -z-10 h-[300px] w-[300px] rounded-full bg-cyan-400/10 blur-[100px]" />
 
@@ -685,8 +678,7 @@ function Projects({ t, lang }) {
             return (
               <Reveal key={p.repo} className="h-full">
                 <article className="group relative flex h-full flex-col rounded-2xl border border-slate-800 bg-slate-900/70 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/50 hover:shadow-[0_0_40px_-8px_rgba(14,165,233,0.45)]">
-                  {/* top glow line on hover */}
-                  <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                                    <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                   <div className="flex items-center justify-between">
                     <span className="grid h-11 w-11 place-items-center rounded-xl bg-sky-500/10 text-sky-400 ring-1 ring-sky-500/20 transition-colors group-hover:bg-sky-500/20">
@@ -752,7 +744,6 @@ function Skills({ t, lang }) {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {SKILLS.map((s, i) => {
             const Icon = s.icon;
-            // The first (largest) category spans two columns on large screens.
             const wide = i === 0 ? "lg:col-span-2" : "";
             return (
               <Reveal key={s.title.en} className={wide}>
@@ -924,26 +915,24 @@ function Footer({ t }) {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  App                                                                */
-/* ------------------------------------------------------------------ */
+// App
 
 export default function App() {
   const [lang, setLang] = useState(getInitialLang);
   const [active, setActive] = useState("home");
   const t = UI[lang];
 
-  // Remember the language and keep <html lang> in sync for screen readers / SEO.
+  // save language choice
   useEffect(() => {
     document.documentElement.lang = lang;
     try {
       localStorage.setItem("lang", lang);
     } catch {
-      /* storage unavailable */
+      
     }
   }, [lang]);
 
-  // Highlight the nav link of the section currently in view.
+  // highlight active section in the navbar
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return;
     const observer = new IntersectionObserver(
