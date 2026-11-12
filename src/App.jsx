@@ -23,7 +23,7 @@ export default function App() {
     try {
       localStorage.setItem("lang", lang);
     } catch {
-      
+      // storage unavailable (e.g. private mode): the choice just isn't persisted
     }
   }, [lang]);
 
