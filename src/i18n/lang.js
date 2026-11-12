@@ -1,5 +1,6 @@
 // returns the text in the current language
-export const pick = (value, lang) => (value && typeof value === "object" && !Array.isArray(value) && "en" in value ? value[lang] : value);
+export const pick = (value, lang) =>
+  value && typeof value === "object" && !Array.isArray(value) && "en" in value ? value[lang] : value;
 
 export function getInitialLang() {
   try {

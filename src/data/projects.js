@@ -30,7 +30,7 @@ export const PROJECTS = [
     cloud: "Lightning Web Components",
     title: { en: "LWC KPI Dashboard", fr: "Tableau de bord KPI en LWC" },
     desc: {
-      en: "Lightning Web Component for Home, App and Record pages, backed by an @AuraEnabled Apex controller \"with sharing\". SOQL aggregates (pipeline, lead conversion rate, open cases) load in a single server call, with loading and error states.",
+      en: 'Lightning Web Component for Home, App and Record pages, backed by an @AuraEnabled Apex controller "with sharing". SOQL aggregates (pipeline, lead conversion rate, open cases) load in a single server call, with loading and error states.',
       fr: "Composant LWC (Home, App et Record Page) avec contrôleur Apex @AuraEnabled « with sharing » : agrégats SOQL (pipeline, taux de conversion des leads, cases ouverts) en un seul appel serveur, avec gestion des états de chargement et d'erreur.",
     },
     metric: { en: "5 KPIs · 1 server call", fr: "5 KPI · 1 appel serveur" },

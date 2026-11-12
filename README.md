@@ -24,13 +24,13 @@ The whole site works in English and French. I'm looking for a job in France, but
 
 These are the projects shown on the site. Each one has its own repo with the code, tests and a README explaining the business need.
 
-| Project | Description |
-|---|---|
+| Project                                                                                 | Description                                                                                                                                                                |
+| --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [case-escalation-automation](https://github.com/ridanajjari/case-escalation-automation) | Scheduled Batch Apex that raises the priority of Cases that break their SLA and notifies the owner by Chatter and email. 7 test methods, including a 200-record bulk test. |
-| [lead-auto-assignment](https://github.com/ridanajjari/lead-auto-assignment) | Apex trigger that assigns Leads by industry and country. The rules are stored in Custom Metadata, so an admin can change them without a deployment. 8 test methods. |
-| [lwc-kpi-dashboard](https://github.com/ridanajjari/lwc-kpi-dashboard) | Lightning Web Component showing pipeline, open cases and lead conversion rate, loaded from Apex in a single call. |
-| [salesforce-api-integration](https://github.com/ridanajjari/salesforce-api-integration) | Apex callout to an external REST API through a Named Credential, with JSON parsing, error handling and mocked tests. |
-| [admin-flow-toolkit](https://github.com/ridanajjari/admin-flow-toolkit) | Five Flows I reuse for common admin needs: welcome email, approval reminder, duplicate check, case auto-close and lead follow-up. |
+| [lead-auto-assignment](https://github.com/ridanajjari/lead-auto-assignment)             | Apex trigger that assigns Leads by industry and country. The rules are stored in Custom Metadata, so an admin can change them without a deployment. 8 test methods.        |
+| [lwc-kpi-dashboard](https://github.com/ridanajjari/lwc-kpi-dashboard)                   | Lightning Web Component showing pipeline, open cases and lead conversion rate, loaded from Apex in a single call.                                                          |
+| [salesforce-api-integration](https://github.com/ridanajjari/salesforce-api-integration) | Apex callout to an external REST API through a Named Credential, with JSON parsing, error handling and mocked tests.                                                       |
+| [admin-flow-toolkit](https://github.com/ridanajjari/admin-flow-toolkit)                 | Five Flows I reuse for common admin needs: welcome email, approval reminder, duplicate check, case auto-close and lead follow-up.                                          |
 
 ## How I built it
 

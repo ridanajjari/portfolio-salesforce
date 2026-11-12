@@ -43,7 +43,9 @@ export const EXPERIENCE = [
     period: { en: "Oct 2022 – Apr 2023", fr: "Oct. 2022 – Avr. 2023" },
     points: {
       en: ["Customer loyalty app for web and mobile (React, React Native): REST APIs, Redux Toolkit, Jest tests."],
-      fr: ["Application de fidélisation clients web et mobile (React, React Native) : API REST, Redux Toolkit, tests Jest."],
+      fr: [
+        "Application de fidélisation clients web et mobile (React, React Native) : API REST, Redux Toolkit, tests Jest.",
+      ],
     },
   },
 ];
@@ -55,7 +57,10 @@ export const EDUCATION = [
     period: { en: "2025 – 2026 · in progress", fr: "2025 – 2026 · en cours" },
   },
   {
-    degree: { en: "Engineering Degree, Computer Science & Networks", fr: "Diplôme d'Ingénieur Informatique et Réseaux (Bac+5)" },
+    degree: {
+      en: "Engineering Degree, Computer Science & Networks",
+      fr: "Diplôme d'Ingénieur Informatique et Réseaux (Bac+5)",
+    },
     school: "EMSI, Casablanca",
     period: { en: "2019 – 2022", fr: "2019 – 2022" },
   },

@@ -72,7 +72,11 @@ export default function Contact({ t }) {
           </Reveal>
 
           <Reveal>
-            <form onSubmit={onSubmit} noValidate className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8">
+            <form
+              onSubmit={onSubmit}
+              noValidate
+              className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8"
+            >
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="block text-sm font-medium text-slate-300">
                   {t.contact.name}

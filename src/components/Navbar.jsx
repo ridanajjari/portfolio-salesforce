@@ -14,7 +14,11 @@ export default function Navbar({ t, lang, setLang, active }) {
   }, []);
 
   const LangSwitch = () => (
-    <div className="flex rounded-full border border-slate-700 p-0.5 text-xs font-semibold" role="group" aria-label="Language">
+    <div
+      className="flex rounded-full border border-slate-700 p-0.5 text-xs font-semibold"
+      role="group"
+      aria-label="Language"
+    >
       {["en", "fr"].map((l) => (
         <button
           key={l}

@@ -21,7 +21,7 @@ export default function Projects({ t, lang }) {
             return (
               <Reveal key={p.repo} className="h-full">
                 <article className="group relative flex h-full flex-col rounded-2xl border border-slate-800 bg-slate-900/70 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/50 hover:shadow-[0_0_40px_-8px_rgba(14,165,233,0.45)]">
-                                    <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                   <div className="flex items-center justify-between">
                     <span className="grid h-11 w-11 place-items-center rounded-xl bg-sky-500/10 text-sky-400 ring-1 ring-sky-500/20 transition-colors group-hover:bg-sky-500/20">

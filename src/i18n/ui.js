@@ -14,7 +14,13 @@ export const UI = {
       contact: "Get in Touch",
     },
     certs: { title: "Salesforce Certifications" },
-    exp: { kicker: "Career", title: "Experience & Education", work: "Experience", edu: "Education", present: "Present" },
+    exp: {
+      kicker: "Career",
+      title: "Experience & Education",
+      work: "Experience",
+      edu: "Education",
+      present: "Present",
+    },
     projects: {
       kicker: "Portfolio",
       title: "Salesforce Projects",
@@ -53,7 +59,13 @@ export const UI = {
       contact: "Me contacter",
     },
     certs: { title: "Certifications Salesforce" },
-    exp: { kicker: "Parcours", title: "Expérience & Formation", work: "Expérience", edu: "Formation", present: "Présent" },
+    exp: {
+      kicker: "Parcours",
+      title: "Expérience & Formation",
+      work: "Expérience",
+      edu: "Formation",
+      present: "Présent",
+    },
     projects: {
       kicker: "Portfolio",
       title: "Projets Salesforce",
