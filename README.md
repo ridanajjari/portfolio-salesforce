@@ -24,19 +24,21 @@ The whole site works in English and French. I'm looking for a job in France, but
 
 These are the projects shown on the site. Each one has its own repo with the code, tests and a README explaining the business need.
 
-| Project | Description |
-|---|---|
-| [case-escalation-automation](https://github.com/ridanajjari/case-escalation-automation) | Scheduled Batch Apex that raises the priority of Cases that break their SLA and notifies the owner by Chatter and email. 7 test methods, including a 200-record bulk test. |
-| [lead-auto-assignment](https://github.com/ridanajjari/lead-auto-assignment) | Apex trigger that assigns Leads by industry and country. The rules are stored in Custom Metadata, so an admin can change them without a deployment. 8 test methods. |
-| [lwc-kpi-dashboard](https://github.com/ridanajjari/lwc-kpi-dashboard) | Lightning Web Component showing pipeline, open cases and lead conversion rate, loaded from Apex in a single call. |
-| [salesforce-api-integration](https://github.com/ridanajjari/salesforce-api-integration) | Apex callout to an external REST API through a Named Credential, with JSON parsing, error handling and mocked tests. |
-| [admin-flow-toolkit](https://github.com/ridanajjari/admin-flow-toolkit) | Five Flows I reuse for common admin needs: welcome email, approval reminder, duplicate check, case auto-close and lead follow-up. |
+| Project                                                                                 | Description                                                                                                                                                                                                                                                                                                                                                             |
+| --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [case-escalation-automation](https://github.com/ridanajjari/case-escalation-automation) | Hourly Batch Apex that raises the priority of open Cases breaching their SLA. Thresholds are in Custom Metadata and age is measured from the last escalation, so a Case is not escalated twice in a row. Chatter post and owner email only for updates that succeeded. 15/15 Apex tests passing (CaseEscalationBatch 88%, CaseEscalationScheduler 100%).                |
+| [lead-auto-assignment](https://github.com/ridanajjari/lead-auto-assignment)             | Before-save Lead trigger that assigns owners from Custom Metadata rules (industry and country, most specific first) to a user or a Lead queue, resolved in bulk. Missing or inactive assignees are skipped instead of throwing. 15/15 Apex tests passing, including a 200-lead bulk test (LeadAssignmentHandler 93%, LeadAssignmentTrigger 100%).                       |
+| [lwc-kpi-dashboard](https://github.com/ridanajjari/lwc-kpi-dashboard)                   | Lightning Web Component showing five sales and service KPIs, loaded with `@wire` and refreshed with `refreshApex`. Apex controller uses `WITH USER_MODE`. 7/7 Apex tests passing (KpiDashboardController 100%) and 5 Jest tests.                                                                                                                                        |
+| [salesforce-api-integration](https://github.com/ridanajjari/salesforce-api-integration) | Apex callout to OpenWeatherMap through a Named Credential, with the API key in a protected custom setting entered in Setup (not stored in code or the repo), typed JSON parsing, and a Queueable plus a Flow-invocable action for bulk updates. 18/18 Apex tests passing with `HttpCalloutMock` (WeatherService 97%, WeatherSyncQueueable 96%, WeatherSyncAction 100%). |
+| [admin-flow-toolkit](https://github.com/ridanajjari/admin-flow-toolkit)                 | Five Flows, shipped as Draft with fault paths: welcome email, 48h approval reminder, duplicate-email check, Case auto-close via a scheduled path, and Lead inactivity alerts. The committed XML was deployed to and retrieved from an org at API 68.0.                                                                                                                  |
+
+Test results and coverage were measured in a Salesforce Developer Edition org at API 68.0 on 2026-11-12. Each repo's README has a Testing section with the details.
 
 ## How I built it
 
 I kept it simple: React 18 with Vite, Tailwind CSS for styling and lucide-react for icons. There's no backend. The contact form just opens the visitor's email app with the message already filled in.
 
-All the content (texts in both languages, experience, projects, skills) sits at the top of `src/App.jsx`, so when something changes in my career I only have to edit that part. The CV you download from the site is `public/Rida_Najjari_CV_Salesforce.pdf`.
+The content lives in plain data files: the texts in both languages in `src/i18n/`, and experience, projects and skills in `src/data/`. The sections themselves are in `src/components/`, so when something changes in my career I only edit the data files. `npm run lint` runs ESLint and `npm run format` runs Prettier. The CV you download from the site is `public/Rida_Najjari_CV_Salesforce.pdf`.
 
 I checked the layout on phone and desktop sizes. On mobile it looks like this:
 

@@ -1,0 +1,96 @@
+// Site content (EN / FR)
+
+export const UI = {
+  en: {
+    nav: { home: "Home", experience: "Experience", projects: "Projects", skills: "Skills", contact: "Contact" },
+    hero: {
+      badge: "4x Salesforce Certified",
+      title: "Salesforce Consultant · Apex / LWC Developer · Administrator",
+      pitch:
+        "Engineer with nearly 4 years in IT and a dual developer + admin profile: Apex, Lightning Web Components, SOQL, Flow and REST integrations across Sales, Service and Experience Cloud.",
+      location: "Paris, France · Open to France & Morocco",
+      available: "Open to a permanent role (CDI)",
+      download: "Download CV",
+      contact: "Get in Touch",
+    },
+    certs: { title: "Salesforce Certifications" },
+    exp: {
+      kicker: "Career",
+      title: "Experience & Education",
+      work: "Experience",
+      edu: "Education",
+      present: "Present",
+    },
+    projects: {
+      kicker: "Portfolio",
+      title: "Salesforce Projects",
+      subtitle:
+        "Public code solving real business problems: bulk-aware, with unit tests and step-by-step deploy instructions.",
+      github: "View on GitHub",
+      all: "See all repositories on GitHub",
+    },
+    skills: { kicker: "Toolbox", title: "Skills" },
+    contact: {
+      kicker: "Contact",
+      title: "Let's work together",
+      text: "Looking for a Salesforce Consultant, Developer or Administrator? Send me a message and I'll get back to you quickly.",
+      name: "Name",
+      email: "Email",
+      message: "Message",
+      send: "Send message",
+      note: "This opens your email app with the message ready to send.",
+      success: "Your email app should now be open. Just hit send!",
+      errName: "Please enter your name.",
+      errEmail: "Please enter a valid email.",
+      errMessage: "Please write at least 10 characters.",
+      subject: "Portfolio: message from",
+    },
+    footer: { built: "Built with React & Tailwind CSS", top: "Back to top" },
+  },
+  fr: {
+    nav: { home: "Accueil", experience: "Parcours", projects: "Projets", skills: "Compétences", contact: "Contact" },
+    hero: {
+      badge: "4x certifié Salesforce",
+      title: "Consultant Salesforce · Développeur Apex / LWC · Administrateur",
+      pitch:
+        "Ingénieur avec près de 4 ans d'expérience IT et un double profil développeur + administrateur : Apex, Lightning Web Components, SOQL, Flow et intégrations REST sur Sales, Service et Experience Cloud.",
+      location: "Paris, France · Mobilité France et Maroc",
+      available: "À la recherche d'un CDI",
+      download: "Télécharger le CV",
+      contact: "Me contacter",
+    },
+    certs: { title: "Certifications Salesforce" },
+    exp: {
+      kicker: "Parcours",
+      title: "Expérience & Formation",
+      work: "Expérience",
+      edu: "Formation",
+      present: "Présent",
+    },
+    projects: {
+      kicker: "Portfolio",
+      title: "Projets Salesforce",
+      subtitle:
+        "Du code public qui répond à de vrais besoins métier : bulkifié, avec tests unitaires et instructions de déploiement.",
+      github: "Voir sur GitHub",
+      all: "Voir tous les dépôts sur GitHub",
+    },
+    skills: { kicker: "Boîte à outils", title: "Compétences" },
+    contact: {
+      kicker: "Contact",
+      title: "Travaillons ensemble",
+      text: "Vous recherchez un Consultant, Développeur ou Administrateur Salesforce ? Envoyez-moi un message, je vous réponds rapidement.",
+      name: "Nom",
+      email: "E-mail",
+      message: "Message",
+      send: "Envoyer",
+      note: "Ouvre votre messagerie avec le message prêt à être envoyé.",
+      success: "Votre messagerie devrait être ouverte. Il ne reste qu'à envoyer !",
+      errName: "Merci d'indiquer votre nom.",
+      errEmail: "Merci d'indiquer un e-mail valide.",
+      errMessage: "Merci d'écrire au moins 10 caractères.",
+      subject: "Portfolio : message de",
+    },
+    footer: { built: "Réalisé avec React & Tailwind CSS", top: "Haut de page" },
+  },
+};
