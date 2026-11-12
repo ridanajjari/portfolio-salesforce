@@ -1,0 +1,48 @@
+import { Cloud, Code2, Database, Languages, Settings, Terminal, Workflow } from "lucide-react";
+
+export const SKILLS = [
+  {
+    icon: Code2,
+    title: { en: "Salesforce Development", fr: "Développement Salesforce" },
+    items: ["Apex", "Triggers", "Batch Apex", "Schedulable", "Test Classes", "SOQL", "LWC", "Aura", "Visualforce", "Flow", "REST API", "HTTP Callouts", "Named Credentials", "Custom Metadata", "Bulkification", "Governor Limits"],
+  },
+  {
+    icon: Settings,
+    title: { en: "Salesforce Administration", fr: "Administration Salesforce" },
+    items: {
+      en: ["Users & Profiles", "Roles", "Permission Sets", "Sharing Model", "Validation Rules", "Custom Objects & Fields", "Record Types", "Page Layouts", "Lightning App Builder", "Reports & Dashboards", "Sandboxes"],
+      fr: ["Utilisateurs & profils", "Rôles", "Permission Sets", "Modèle de partage", "Règles de validation", "Objets & champs personnalisés", "Record Types", "Page Layouts", "Lightning App Builder", "Rapports & tableaux de bord", "Sandbox"],
+    },
+  },
+  {
+    icon: Cloud,
+    title: { en: "Clouds", fr: "Clouds" },
+    items: ["Sales Cloud", "Service Cloud", "Experience Cloud"],
+  },
+  {
+    icon: Database,
+    title: { en: "Data & DevOps", fr: "Données & DevOps" },
+    items: ["Data Loader", "Workbench", "Salesforce Inspector", "Salesforce CLI (SFDX)", "Change Sets", "Git", "GitHub", "GitLab CI/CD", "Jenkins"],
+  },
+  {
+    icon: Workflow,
+    title: { en: "Methods", fr: "Méthodes" },
+    items: {
+      en: ["Agile Scrum", "Kanban", "Requirements Gathering", "Functional & Technical Specs", "UAT", "ITSM", "SLA"],
+      fr: ["Agile Scrum", "Kanban", "Recueil des besoins", "Spécifications fonctionnelles & techniques", "Recette / UAT", "ITSM", "SLA"],
+    },
+  },
+  {
+    icon: Terminal,
+    title: { en: "Other Tech", fr: "Autres technologies" },
+    items: ["JavaScript", "Java", "Spring Boot", "Python", "SQL", "React"],
+  },
+  {
+    icon: Languages,
+    title: { en: "Languages", fr: "Langues" },
+    items: {
+      en: ["French (fluent)", "English (fluent)", "Arabic (native)"],
+      fr: ["Français (courant)", "Anglais (courant)", "Arabe (langue maternelle)"],
+    },
+  },
+];
