@@ -24,7 +24,8 @@ export const UI = {
     projects: {
       kicker: "Portfolio",
       title: "Salesforce Projects",
-      subtitle: "Public code solving real business problems: tested, bulk-safe and deployable.",
+      subtitle:
+        "Public code solving real business problems: bulk-aware, with unit tests and step-by-step deploy instructions.",
       github: "View on GitHub",
       all: "See all repositories on GitHub",
     },
@@ -69,7 +70,8 @@ export const UI = {
     projects: {
       kicker: "Portfolio",
       title: "Projets Salesforce",
-      subtitle: "Du code public qui répond à de vrais besoins métier : testé, bulkifié et déployable.",
+      subtitle:
+        "Du code public qui répond à de vrais besoins métier : bulkifié, avec tests unitaires et instructions de déploiement.",
       github: "Voir sur GitHub",
       all: "Voir tous les dépôts sur GitHub",
     },
