@@ -10,11 +10,16 @@ This repo is the code of my personal website. I wanted one place where a recruit
 
 ## What's on the site
 
-- A short intro, my certifications and a button to download my CV
-- My experience (Vulcain Engineering Group, Dell Technologies, Sofrecom) and education (Institut F2i, EMSI)
-- My Salesforce projects, each with a link to its GitHub repo
-- My skills, grouped by area
-- A contact section with my email, LinkedIn and a small form
+- A short intro with a 3D cloud that follows the mouse, and a button to download my CV
+- A light and a dark theme. The site follows your device setting and remembers your choice if you switch
+- An About section with a few numbers and how I work
+- My experience (Vulcain Engineering Group, Dell Technologies, Sofrecom), shown as a timeline that scrolls sideways on desktop, and my education (Institut F2i, EMSI)
+- A live demo: two of my Apex projects replayed in the browser on a screen that looks like Salesforce Lightning, with the same rules as the Custom Metadata in the repos and sample data only
+- My Salesforce projects, with filters, a short case study for each one and a link to its GitHub repo
+- My 4 certifications and my skills, grouped by area
+- A "Book a call" window to propose a day and a time
+- A contact form that sends the message straight from the page, plus my email and LinkedIn
+- A command menu (Ctrl + K) to jump to any section
 
 The whole site works in English and French. I'm looking for a job in France, but I also wanted it readable for international teams, so there's an EN / FR switch in the menu.
 
@@ -36,11 +41,11 @@ Test results and coverage were measured in a Salesforce Developer Edition org at
 
 ## How I built it
 
-I kept it simple: React 18 with Vite, Tailwind CSS for styling and lucide-react for icons. There's no backend. The contact form just opens the visitor's email app with the message already filled in.
+React 18 with Vite, Tailwind CSS for styling, Framer Motion for the animations, three.js for the 3D cloud and lucide-react for icons. There's no backend of my own: the contact form is handled by Netlify Forms, which emails me each message.
 
-The content lives in plain data files: the texts in both languages in `src/i18n/`, and experience, projects and skills in `src/data/`. The sections themselves are in `src/components/`, so when something changes in my career I only edit the data files. `npm run lint` runs ESLint and `npm run format` runs Prettier. The CV you download from the site is `public/Rida_Najjari_CV_Salesforce.pdf`.
+The content lives in plain data files: the texts in both languages in `src/i18n/`, and experience, projects, case studies and skills in `src/data/`. The sections themselves are in `src/components/`, so when something changes in my career I only edit the data files. The colours of both themes are defined once in `src/index.css`. `npm run lint` runs ESLint and `npm run format` runs Prettier. The CV you download from the site is `public/Rida_Najjari_CV_Salesforce.pdf`.
 
-I checked the layout on phone and desktop sizes. On mobile it looks like this:
+Animations are switched off for visitors whose device asks for reduced motion. I checked the layout on phone and desktop sizes. On mobile it looks like this:
 
 <img src="docs/screenshot-mobile-fr.png" alt="Mobile version in French" width="280" />
 
@@ -51,7 +56,7 @@ npm install
 npm run dev
 ```
 
-Then open http://localhost:5173. `npm run build` creates the production version in `dist/`.
+Then open http://localhost:5173. `npm run build` creates the production version in `dist/`. The contact form only sends messages on the deployed site, because Netlify does the sending.
 
 I host the site on Netlify at [rida-najjari.netlify.app](https://rida-najjari.netlify.app/). The build settings are in `netlify.toml`, and every time I push to `main` the site updates on its own.
 
