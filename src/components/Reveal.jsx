@@ -1,37 +1,21 @@
-import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
-// fade-in on scroll
-export default function Reveal({ children, className = "" }) {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
+const OFFSETS = { up: { y: 36 }, left: { x: -48 }, right: { x: 48 }, scale: { scale: 0.9 } };
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.12 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+// fade / slide / unblur on scroll
+export default function Reveal({ children, className = "", delay = 0, from = "up" }) {
+  const reduce = useReducedMotion();
+  if (reduce) return <div className={className}>{children}</div>;
 
   return (
-    <div
-      ref={ref}
-      className={`motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out ${
-        visible ? "translate-y-0 opacity-100" : "motion-safe:translate-y-6 motion-safe:opacity-0"
-      } ${className}`}
+    <motion.div
+      initial={{ opacity: 0, filter: "blur(8px)", ...OFFSETS[from] }}
+      whileInView={{ opacity: 1, filter: "blur(0px)", x: 0, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-70px" }}
+      transition={{ duration: 0.75, delay, ease: [0.16, 1, 0.3, 1] }}
+      className={className}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }

@@ -1,9 +1,12 @@
 import { LayoutDashboard, Plug, Users, Workflow, Zap } from "lucide-react";
 
+export const PROJECT_FILTERS = ["all", "apex", "lwc", "integration", "flow"];
+
 export const PROJECTS = [
   {
     icon: Zap,
     cloud: "Service Cloud",
+    category: "apex",
     title: { en: "SLA Case Escalation", fr: "Escalade des Cases selon SLA" },
     desc: {
       en: "Hourly Batch Apex (Schedulable, Database.Stateful) that raises the priority of open Cases breaching their SLA. Thresholds live in Custom Metadata (Medium → High after 48h, High → Critical after 24h) and age is measured from the last escalation, so a Case is never escalated twice in a row. Chatter post and owner email only for updates that succeeded.",
@@ -19,6 +22,7 @@ export const PROJECTS = [
   {
     icon: Users,
     cloud: "Sales Cloud",
+    category: "apex",
     title: { en: "Lead Auto-Assignment Engine", fr: "Attribution automatique des Leads" },
     desc: {
       en: "Before-save Lead trigger built on the Trigger Handler pattern. Routing rules by industry and country live in Custom Metadata and are matched most specific first, assigning to a user (by username) or a Lead queue. Assignees are resolved in bulk with cached queries; inactive or unknown assignees are skipped instead of throwing.",
@@ -34,6 +38,7 @@ export const PROJECTS = [
   {
     icon: LayoutDashboard,
     cloud: "Lightning Web Components",
+    category: "lwc",
     title: { en: "LWC KPI Dashboard", fr: "Tableau de bord KPI en LWC" },
     desc: {
       en: 'Lightning Web Component for Home and App pages showing five sales and service KPIs. Data loads with @wire and the Refresh button uses refreshApex; "Last updated" shows the server timestamp. Apex controller with sharing and WITH USER_MODE, Custom Labels, lightning-formatted-number and SLDS styling hooks.',
@@ -49,6 +54,7 @@ export const PROJECTS = [
   {
     icon: Plug,
     cloud: "Integration",
+    category: "integration",
     title: { en: "External REST API Integration", fr: "Intégration REST API externe" },
     desc: {
       en: "Apex HTTP callout through a Named Credential, with the API key kept in a protected custom setting entered in Setup, never in code or in the repo. Typed JSON parsing with null guards, timeout and error handling, and a Queueable plus a Flow-invocable action that update Accounts in bulk.",
@@ -61,6 +67,7 @@ export const PROJECTS = [
   {
     icon: Workflow,
     cloud: "Flow · Admin",
+    category: "flow",
     title: { en: "Admin Flow Toolkit", fr: "Boîte à outils Flow Admin" },
     desc: {
       en: "Five Flows for common admin needs, each with fault paths and shipped as Draft: welcome email on Account creation, 48h approval reminders, duplicate-email block before save, Case auto-close 72h after resolution via a scheduled path, and weekly-capped Lead inactivity alerts.",

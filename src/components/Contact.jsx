@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { ExternalLink, Mail, Send } from "lucide-react";
+import { CalendarPlus, ExternalLink, Mail, Send } from "lucide-react";
 import { PROFILE } from "../data/profile";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
-export default function Contact({ t }) {
+export default function Contact({ t, onBook }) {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({});
   const [sent, setSent] = useState(false);
@@ -68,6 +68,19 @@ export default function Contact({ t }) {
                   <ExternalLink className="ml-auto h-4 w-4 shrink-0 text-slate-600 group-hover:text-sky-400" />
                 </a>
               ))}
+              <button
+                type="button"
+                onClick={onBook}
+                className="glow-border group flex w-full items-center gap-4 rounded-2xl border border-sky-500/30 bg-sky-500/10 p-5 text-left transition-all hover:-translate-y-0.5 hover:bg-sky-500/20"
+              >
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-sky-500 text-white">
+                  <CalendarPlus className="h-5 w-5" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-sm text-sky-300">{t.book.kicker}</span>
+                  <span className="block font-medium text-white">{t.book.button}</span>
+                </span>
+              </button>
             </div>
           </Reveal>
 
