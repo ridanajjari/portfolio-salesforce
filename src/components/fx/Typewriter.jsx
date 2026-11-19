@@ -29,7 +29,7 @@ export default function Typewriter({ words, className = "" }) {
     <span className={className}>
       <span aria-hidden="true">
         {reduce ? words[0] : s.text}
-        <span className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-0.5 animate-blink bg-sky-400" />
+        <span className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-0.5 animate-blink bg-brand-400" />
       </span>
       <span className="sr-only">{words.join(", ")}</span>
     </span>

@@ -2,6 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Theme tokens (space-separated RGB so Tailwind can apply opacity).
+  `ink` runs from page background (950) to strongest text (50) and is flipped
+  between the two themes, so the same class names work in both.
+*/
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --ink-950: 2 16 36;
+  --ink-900: 7 27 56;
+  --ink-800: 15 42 79;
+  --ink-700: 28 61 104;
+  --ink-600: 58 90 133;
+  --ink-500: 95 123 163;
+  --ink-400: 143 166 198;
+  --ink-300: 194 208 228;
+  --ink-200: 223 232 244;
+  --ink-100: 238 243 250;
+  --ink-50: 247 250 255;
+  --heading: 255 255 255;
+
+  /* Salesforce Lightning blue */
+  --brand-200: 170 203 255;
+  --brand-300: 120 176 253;
+  --brand-400: 87 163 253;
+  --brand-500: 13 132 238;
+  --brand-600: 1 118 211;
+
+  /* Salesforce green */
+  --accent-200: 205 239 196;
+  --accent-300: 145 219 139;
+  --accent-400: 69 198 90;
+  --accent-500: 59 167 85;
+
+  --btn-bg: 69 198 90;
+  --btn-bg-hover: 145 219 139;
+  --btn-fg: 2 16 36;
+
+  --sky-top: 3 30 66;
+  --sky-bottom: 2 16 36;
+  --cloud: 120 176 253;
+  --cloud-opacity: 0.1;
+  --stars: 1;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --ink-950: 243 248 255;
+  --ink-900: 255 255 255;
+  --ink-800: 216 230 254;
+  --ink-700: 186 208 240;
+  --ink-600: 143 166 198;
+  --ink-500: 95 115 150;
+  --ink-400: 68 86 120;
+  --ink-300: 40 56 88;
+  --ink-200: 24 40 72;
+  --ink-100: 10 25 55;
+  --ink-50: 3 22 57;
+  --heading: 3 45 96;
+
+  --brand-200: 1 68 134;
+  --brand-300: 11 92 171;
+  --brand-400: 1 118 211;
+  --brand-500: 1 118 211;
+  --brand-600: 1 118 211;
+
+  --accent-200: 28 100 60;
+  --accent-300: 35 110 60;
+  --accent-400: 46 132 74;
+  --accent-500: 59 167 85;
+
+  --btn-bg: 46 132 74;
+  --btn-bg-hover: 35 110 60;
+  --btn-fg: 255 255 255;
+
+  --sky-top: 190 222 255;
+  --sky-bottom: 243 248 255;
+  --cloud: 255 255 255;
+  --cloud-opacity: 0.95;
+  --stars: 0;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
@@ -19,15 +101,43 @@
 }
 
 body {
-  @apply bg-slate-950 text-slate-300 antialiased;
+  @apply bg-ink-950 text-ink-300 antialiased;
+}
+
+/* theme switch: the new theme grows out of the toggle button as a circle */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) {
+  animation: theme-reveal 0.6s ease-out;
+}
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--reveal-x, 50%) var(--reveal-y, 0%));
+  }
+  to {
+    clip-path: circle(150vmax at var(--reveal-x, 50%) var(--reveal-y, 0%));
+  }
 }
 
 @layer components {
+  /* the one primary action style: Salesforce green on a blue page */
+  .btn-primary {
+    background-color: rgb(var(--btn-bg));
+    color: rgb(var(--btn-fg));
+    box-shadow: 0 10px 25px -8px rgb(var(--btn-bg) / 0.55);
+  }
+  .btn-primary:hover {
+    background-color: rgb(var(--btn-bg-hover));
+  }
+
   /* faint blueprint grid behind sections */
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+      linear-gradient(to right, rgb(var(--ink-400) / 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--ink-400) / 0.08) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
     -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
@@ -35,7 +145,14 @@ body {
 
   /* moving gradient text */
   .text-shimmer {
-    background-image: linear-gradient(110deg, #38bdf8 0%, #67e8f9 25%, #a78bfa 50%, #67e8f9 75%, #38bdf8 100%);
+    background-image: linear-gradient(
+      110deg,
+      rgb(var(--brand-400)) 0%,
+      rgb(var(--brand-300)) 30%,
+      rgb(var(--accent-400)) 50%,
+      rgb(var(--brand-300)) 70%,
+      rgb(var(--brand-400)) 100%
+    );
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -54,7 +171,7 @@ body {
     border-radius: inherit;
     background: radial-gradient(
       420px circle at var(--mx, 50%) var(--my, 0%),
-      rgba(56, 189, 248, 0.16),
+      rgb(var(--brand-400) / 0.16),
       transparent 60%
     );
     opacity: 0;
@@ -75,7 +192,13 @@ body {
     inset: -1px;
     border-radius: inherit;
     padding: 1px;
-    background: conic-gradient(from var(--angle, 0deg), transparent 0 70%, #38bdf8 85%, #a78bfa 95%, transparent 100%);
+    background: conic-gradient(
+      from var(--angle, 0deg),
+      transparent 0 70%,
+      rgb(var(--brand-400)) 85%,
+      rgb(var(--accent-400)) 95%,
+      transparent 100%
+    );
     -webkit-mask:
       linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
@@ -100,5 +223,14 @@ body {
 @keyframes border-spin {
   to {
     --angle: 360deg;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(-45vw);
+  }
+  to {
+    transform: translateX(145vw);
   }
 }

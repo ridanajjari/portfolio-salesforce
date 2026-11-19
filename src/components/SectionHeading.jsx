@@ -5,14 +5,14 @@ export default function SectionHeading({ kicker, title, subtitle }) {
   const words = title.split(" ");
   return (
     <div className="mb-14 text-center">
-      <p className="inline-flex items-center gap-3 font-mono text-xs font-medium uppercase tracking-[0.25em] text-sky-400">
-        <span className="h-px w-8 bg-gradient-to-r from-transparent to-sky-400" />
+      <p className="inline-flex items-center gap-3 font-mono text-xs font-medium uppercase tracking-[0.25em] text-brand-400">
+        <span className="h-px w-8 bg-gradient-to-r from-transparent to-brand-400" />
         {kicker}
-        <span className="h-px w-8 bg-gradient-to-l from-transparent to-sky-400" />
+        <span className="h-px w-8 bg-gradient-to-l from-transparent to-brand-400" />
       </p>
       {/* the trigger sits on the h2: the words start clipped, so they can't observe themselves */}
       <motion.h2
-        className="mt-3 font-display text-3xl font-bold text-white sm:text-5xl"
+        className="mt-3 font-display text-3xl font-bold text-heading sm:text-5xl"
         aria-label={title}
         initial={reduce ? false : "hidden"}
         whileInView="show"
@@ -34,7 +34,7 @@ export default function SectionHeading({ kicker, title, subtitle }) {
           </span>
         ))}
       </motion.h2>
-      {subtitle && <p className="mx-auto mt-4 max-w-2xl text-slate-400">{subtitle}</p>}
+      {subtitle && <p className="mx-auto mt-4 max-w-2xl text-ink-400">{subtitle}</p>}
     </div>
   );
 }

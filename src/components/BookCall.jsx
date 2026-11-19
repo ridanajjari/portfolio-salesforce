@@ -60,12 +60,12 @@ export default function BookCall({ t, lang, onClose }) {
     `mailto:${PROFILE.email}?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(`${b.mailBody}\n\n${when} (${b.paris})\n\n${name.trim()}`)}`;
 
   const action =
-    "inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300";
+    "inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-300";
   const off = "pointer-events-none opacity-40";
 
   return (
     <motion.div
-      className="fixed inset-0 z-[90] grid grid-cols-[minmax(0,1fr)] place-items-center overflow-y-auto bg-slate-950/80 p-4 backdrop-blur-md"
+      className="fixed inset-0 z-[90] grid grid-cols-[minmax(0,1fr)] place-items-center overflow-y-auto bg-ink-950/80 p-4 backdrop-blur-md"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -82,34 +82,34 @@ export default function BookCall({ t, lang, onClose }) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 20 }}
         transition={{ type: "spring", stiffness: 260, damping: 24 }}
-        className="glow-border relative w-full max-w-2xl rounded-3xl border border-slate-700/70 bg-slate-900 p-6 shadow-2xl shadow-sky-950 outline-none sm:p-8"
+        className="glow-border relative w-full max-w-2xl rounded-3xl border border-ink-700/70 bg-ink-900 p-6 shadow-2xl shadow-ink-950 outline-none sm:p-8"
       >
         <button
           type="button"
           onClick={onClose}
           aria-label={b.close}
-          className="absolute right-4 top-4 z-10 rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-800 hover:text-white"
+          className="absolute right-4 top-4 z-10 rounded-lg p-2 text-ink-400 transition-colors hover:bg-ink-800 hover:text-heading"
         >
           <X className="h-5 w-5" />
         </button>
 
-        <p className="font-mono text-xs uppercase tracking-[0.25em] text-sky-400">{b.kicker}</p>
-        <h2 id="book-title" className="mt-2 pr-10 font-display text-2xl font-bold text-white sm:text-3xl">
+        <p className="font-mono text-xs uppercase tracking-[0.25em] text-brand-400">{b.kicker}</p>
+        <h2 id="book-title" className="mt-2 pr-10 font-display text-2xl font-bold text-heading sm:text-3xl">
           {b.title}
         </h2>
-        <p className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm text-slate-400">
+        <p className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm text-ink-400">
           <span className="inline-flex items-center gap-1.5">
-            <Clock className="h-4 w-4 text-sky-400" />
+            <Clock className="h-4 w-4 text-brand-400" />
             {DURATION_MIN} min
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <Video className="h-4 w-4 text-sky-400" />
+            <Video className="h-4 w-4 text-brand-400" />
             {b.where}
           </span>
         </p>
 
         {/* day */}
-        <h3 className="mt-7 text-sm font-semibold text-white">{b.pickDay}</h3>
+        <h3 className="mt-7 text-sm font-semibold text-heading">{b.pickDay}</h3>
         <div className="-mx-1 mt-3 flex gap-2 overflow-x-auto px-1 pb-2" role="group" aria-label={b.pickDay}>
           {days.map((d, i) => (
             <motion.button
@@ -120,10 +120,10 @@ export default function BookCall({ t, lang, onClose }) {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + i * 0.03 }}
-              className={`shrink-0 rounded-xl border px-4 py-2.5 text-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 ${
+              className={`shrink-0 rounded-xl border px-4 py-2.5 text-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 ${
                 day === i
-                  ? "border-sky-400 bg-sky-500/20 text-white shadow-[0_0_24px_-6px_rgba(56,189,248,0.8)]"
-                  : "border-slate-700 text-slate-400 hover:border-slate-500 hover:text-white"
+                  ? "border-brand-400 bg-brand-500/20 text-heading shadow-[0_0_24px_-6px_rgba(27,150,255,0.8)]"
+                  : "border-ink-700 text-ink-400 hover:border-ink-500 hover:text-heading"
               }`}
             >
               <span className="block text-[11px] uppercase tracking-wider">{fmtDay(d, { weekday: "short" })}</span>
@@ -134,8 +134,8 @@ export default function BookCall({ t, lang, onClose }) {
         </div>
 
         {/* time */}
-        <h3 className="mt-5 text-sm font-semibold text-white">
-          {b.pickTime} <span className="font-normal text-slate-500">({b.paris})</span>
+        <h3 className="mt-5 text-sm font-semibold text-heading">
+          {b.pickTime} <span className="font-normal text-ink-500">({b.paris})</span>
         </h3>
         <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-4" role="group" aria-label={b.pickTime}>
           {SLOTS.map((s) => (
@@ -144,10 +144,10 @@ export default function BookCall({ t, lang, onClose }) {
               type="button"
               onClick={() => setSlot(s)}
               aria-pressed={slot === s}
-              className={`rounded-xl border px-3 py-2.5 font-mono text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 ${
+              className={`rounded-xl border px-3 py-2.5 font-mono text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 ${
                 slot === s
-                  ? "scale-105 border-sky-400 bg-sky-500 text-white shadow-lg shadow-sky-500/40"
-                  : "border-slate-700 text-slate-300 hover:border-sky-500/60 hover:text-white"
+                  ? "scale-105 border-brand-400 bg-brand-500 text-white shadow-lg shadow-brand-500/40"
+                  : "border-ink-700 text-ink-300 hover:border-brand-500/60 hover:text-heading"
               }`}
             >
               {s}
@@ -155,25 +155,25 @@ export default function BookCall({ t, lang, onClose }) {
           ))}
         </div>
 
-        <label className="mt-5 block text-sm font-semibold text-white">
-          {b.name} <span className="font-normal text-slate-500">({b.optional})</span>
+        <label className="mt-5 block text-sm font-semibold text-heading">
+          {b.name} <span className="font-normal text-ink-500">({b.optional})</span>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             autoComplete="name"
-            className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950/60 px-4 py-3 font-normal text-white outline-none transition-colors focus:border-sky-500 focus:ring-2 focus:ring-sky-500/30"
+            className="mt-2 w-full rounded-xl border border-ink-700 bg-ink-950/60 px-4 py-3 font-normal text-heading outline-none transition-colors focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30"
           />
         </label>
 
         <p className="mt-5 flex min-h-[1.5rem] items-center gap-2 text-sm" aria-live="polite">
           {slot ? (
             <>
-              <CalendarCheck className="h-4 w-4 shrink-0 text-emerald-300" />
-              <span className="font-medium capitalize text-emerald-300">{when}</span>
+              <CalendarCheck className="h-4 w-4 shrink-0 text-accent-300" />
+              <span className="font-medium capitalize text-accent-300">{when}</span>
             </>
           ) : (
-            <span className="text-slate-500">{b.hint}</span>
+            <span className="text-ink-500">{b.hint}</span>
           )}
         </p>
 
@@ -183,7 +183,7 @@ export default function BookCall({ t, lang, onClose }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-disabled={!slot}
-            className={`${action} bg-gradient-to-r from-sky-500 to-cyan-500 text-white shadow-lg shadow-sky-500/25 hover:-translate-y-0.5 hover:shadow-sky-500/50 ${slot ? "" : off}`}
+            className={`${action} btn-primary hover:-translate-y-0.5 ${slot ? "" : off}`}
           >
             <CalendarPlus className="h-4 w-4" />
             {b.google}
@@ -191,13 +191,13 @@ export default function BookCall({ t, lang, onClose }) {
           <a
             href={mailUrl || undefined}
             aria-disabled={!slot}
-            className={`${action} border border-slate-700 text-white hover:border-sky-500/60 hover:bg-slate-800 ${slot ? "" : off}`}
+            className={`${action} border border-ink-700 text-heading hover:border-brand-500/60 hover:bg-ink-800 ${slot ? "" : off}`}
           >
             <Mail className="h-4 w-4" />
             {b.email}
           </a>
         </div>
-        <p className="mt-3 text-xs text-slate-500">{b.note}</p>
+        <p className="mt-3 text-xs text-ink-500">{b.note}</p>
       </motion.div>
     </motion.div>
   );

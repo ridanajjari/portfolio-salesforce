@@ -1,11 +1,21 @@
 /** @type {import('tailwindcss').Config} */
+
+// colours come from CSS variables (see src/index.css) so light and dark share class names
+const scale = (name, steps) => Object.fromEntries(steps.map((s) => [s, `rgb(var(--${name}-${s}) / <alpha-value>)`]));
+
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
+      colors: {
+        ink: scale("ink", [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950]),
+        brand: scale("brand", [200, 300, 400, 500, 600]),
+        accent: scale("accent", [200, 300, 400, 500]),
+        heading: "rgb(var(--heading) / <alpha-value>)",
+      },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["Space Grotesk", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Source Sans 3", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       keyframes: {
@@ -19,7 +29,8 @@ export default {
           "66%": { transform: "translate(-8%,8%) scale(0.9)" },
         },
         "spin-slow": { to: { transform: "rotate(360deg)" } },
-        scan: { "0%": { transform: "translateY(-100%)" }, "100%": { transform: "translateY(100%)" } },
+        drift: { from: { transform: "translateX(-45vw)" }, to: { transform: "translateX(145vw)" } },
+        twinkle: { "0%,100%": { opacity: "0.2" }, "50%": { opacity: "1" } },
       },
       animation: {
         marquee: "marquee 38s linear infinite",
@@ -30,7 +41,7 @@ export default {
         blink: "blink 1s steps(1) infinite",
         aurora: "aurora 18s ease-in-out infinite",
         "spin-slow": "spin-slow 14s linear infinite",
-        scan: "scan 1.2s ease-in-out infinite",
+        twinkle: "twinkle 4s ease-in-out infinite",
       },
     },
   },

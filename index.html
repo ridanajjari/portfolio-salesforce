@@ -8,20 +8,39 @@
       name="description"
       content="Rida Najjari, 4x certified Salesforce Consultant, Apex / LWC Developer and Administrator based in Paris."
     />
-    <meta name="theme-color" content="#020617" />
+    <meta name="theme-color" content="#021024" />
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230ea5e9'/><text x='16' y='21' font-size='14' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>RN</text></svg>"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230176d3'/><text x='16' y='21' font-size='14' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>RN</text></svg>"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;600;700;900&display=swap"
       rel="stylesheet"
     />
+    <script>
+      // set the theme before first paint: saved choice, otherwise the device setting
+      (function () {
+        var t = null;
+        try {
+          t = localStorage.getItem("theme");
+        } catch (e) {}
+        if (t !== "light" && t !== "dark")
+          t = window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
   </head>
-  <body class="bg-slate-950">
+  <body class="bg-ink-950">
     <div id="root"></div>
+    <!-- Netlify Forms scans the built HTML for this form; the visible one in React posts to it -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

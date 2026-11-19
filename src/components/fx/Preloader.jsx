@@ -27,7 +27,7 @@ export default function Preloader({ onDone }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] grid place-items-center bg-slate-950"
+      className="fixed inset-0 z-[100] grid place-items-center bg-ink-950"
       exit={{ y: "-100%" }}
       transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
       aria-hidden="true"
@@ -38,20 +38,20 @@ export default function Preloader({ onDone }) {
           initial={{ scale: 0.6, opacity: 0, rotate: -12 }}
           animate={{ scale: 1, opacity: 1, rotate: 0 }}
           transition={{ type: "spring", stiffness: 160, damping: 14 }}
-          className="glow-border mx-auto grid h-20 w-20 place-items-center rounded-2xl bg-gradient-to-br from-sky-500 to-cyan-400 font-display text-2xl font-bold text-white shadow-[0_0_60px_rgba(14,165,233,0.6)]"
+          className="glow-border mx-auto grid h-20 w-20 place-items-center rounded-2xl bg-gradient-to-br from-brand-500 to-brand-400 font-display text-2xl font-bold text-white shadow-[0_0_60px_rgba(1,118,211,0.6)]"
         >
           RN
         </motion.div>
-        <p className="mt-8 font-mono text-sm text-slate-500">
-          <span className="text-sky-400">sf</span> org open --target-org portfolio
+        <p className="mt-8 font-mono text-sm text-ink-500">
+          <span className="text-brand-400">sf</span> org open --target-org portfolio
         </p>
-        <div className="mx-auto mt-4 h-1 w-56 overflow-hidden rounded-full bg-slate-800">
+        <div className="mx-auto mt-4 h-1 w-56 overflow-hidden rounded-full bg-ink-800">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-sky-500 via-cyan-300 to-violet-400"
+            className="h-full rounded-full bg-gradient-to-r from-brand-500 via-brand-300 to-accent-400"
             style={{ width: `${n}%` }}
           />
         </div>
-        <p className="mt-3 font-mono text-xs tabular-nums text-slate-400">{n}%</p>
+        <p className="mt-3 font-mono text-xs tabular-nums text-ink-400">{n}%</p>
       </div>
     </motion.div>
   );
