@@ -1,6 +1,6 @@
 # portfolio-salesforce
 
-Hi, I'm Rida Najjari. I'm a Salesforce consultant in Paris, currently working on Sales Cloud and Service Cloud at Vulcain Engineering Group. I do both development (Apex, LWC, Flow, integrations) and administration, and I hold 4 Salesforce certifications: Platform Administrator, Platform App Builder, Platform Developer I and Associate.
+Hi, I'm Rida Najjari, a Salesforce developer and administrator in Paris. I build Salesforce solutions that hold up in production: Lightning Web Components, Apex and Flow delivered on Sales Cloud and Service Cloud at Vulcain Engineering Group, from requirements gathering to Production deployment. I hold 4 Salesforce certifications: Platform Administrator, Platform App Builder, Platform Developer I and Associate.
 
 This repo is the code of my personal website. I wanted one place where a recruiter or a tech lead can quickly see my background and open the code of the Salesforce projects I've built, instead of only reading a PDF.
 
@@ -10,18 +10,24 @@ This repo is the code of my personal website. I wanted one place where a recruit
 
 ## What's on the site
 
-- A short intro with a 3D cloud that follows the mouse, and a button to download my CV
+- A short intro that says what I do in one headline and one paragraph, with a 3D cloud that follows the mouse and a button to download my CV
 - A light and a dark theme. The site follows your device setting and remembers your choice if you switch
+
+![Home page in the light theme](docs/screenshot-hero-light.png)
+
 - An About section with a few numbers and how I work
 - My experience (Vulcain Engineering Group, Dell Technologies, Sofrecom), shown as a timeline that scrolls sideways on desktop, and my education (Institut F2i, EMSI)
 - A live demo: two of my Apex projects replayed in the browser on a screen that looks like Salesforce Lightning, with the same rules as the Custom Metadata in the repos and sample data only
+
+![Live demo section](docs/screenshot-demo.png)
+
 - My Salesforce projects, with filters, a short case study for each one and a link to its GitHub repo
 - My 4 certifications and my skills, grouped by area
 - A "Book a call" window to propose a day and a time
 - A contact form that sends the message straight from the page, plus my email and LinkedIn
 - A command menu (Ctrl + K) to jump to any section
 
-The whole site works in English and French. I'm looking for a job in France, but I also wanted it readable for international teams, so there's an EN / FR switch in the menu.
+The whole site works in English and French. I work in France, but I also wanted it readable for international teams, so there's an EN / FR switch in the menu.
 
 ![Projects section](docs/screenshot-projects.png)
 
