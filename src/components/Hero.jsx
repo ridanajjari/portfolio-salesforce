@@ -1,10 +1,9 @@
 import { lazy, Suspense, useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, BadgeCheck, CalendarPlus, CheckCircle2, Cloud, Download, MapPin, Zap } from "lucide-react";
+import { ArrowDown, CalendarPlus, CheckCircle2, Cloud, Download, MapPin, Zap } from "lucide-react";
 import { PROFILE } from "../data/profile";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 import Magnetic from "./fx/Magnetic";
-import Typewriter from "./fx/Typewriter";
 
 // three.js is only downloaded when the hero mounts, in its own chunk
 const CloudScene = lazy(() => import("./fx/CloudScene"));
@@ -73,18 +72,7 @@ export default function Hero({ t, ready, onBook, theme }) {
       >
         {/* text */}
         <motion.div variants={container} initial={reduce ? false : "hidden"} animate={state}>
-          <motion.span
-            variants={item}
-            className="inline-flex items-center gap-2 rounded-full border border-accent-400/40 bg-accent-400/10 px-4 py-1.5 text-sm font-medium text-accent-300"
-          >
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-400" />
-            </span>
-            {t.hero.available}
-          </motion.span>
-
-          <motion.p variants={item} className="mt-7 font-mono text-sm text-brand-300">
+          <motion.p variants={item} className="font-mono text-sm text-brand-300">
             {t.hero.hello}
           </motion.p>
 
@@ -104,15 +92,8 @@ export default function Hero({ t, ready, onBook, theme }) {
             </span>
           </h1>
 
-          <motion.p
-            variants={item}
-            className="mt-4 min-h-[3.2em] font-display text-2xl font-bold text-heading sm:min-h-[1.6em] sm:text-3xl"
-          >
-            {t.hero.build} <Typewriter words={t.hero.roles} className="text-brand-400" />
-          </motion.p>
-
-          <motion.p variants={item} className="mt-2 text-sm font-medium text-ink-400">
-            {t.hero.title}
+          <motion.p variants={item} className="mt-4 font-display text-2xl font-bold text-brand-400 sm:text-3xl">
+            {t.hero.headline}
           </motion.p>
 
           <motion.p variants={item} className="mt-5 max-w-xl leading-relaxed text-ink-300">
@@ -192,9 +173,6 @@ export default function Hero({ t, ready, onBook, theme }) {
           )}
           {shown && (
             <>
-              <Chip className="left-0 top-[12%]" icon={BadgeCheck} delay={0.9}>
-                {t.hero.chipCerts}
-              </Chip>
               <Chip className="right-0 top-[30%]" icon={Zap} delay={1.1}>
                 Apex · LWC · Flow
               </Chip>
